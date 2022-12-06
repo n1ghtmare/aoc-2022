@@ -1,8 +1,9 @@
 use std::fs;
 
+// Day 1
 fn main() {
     let file_data: String =
-        fs::read_to_string("input_prod.txt").expect("Can't read the contents of the file");
+        fs::read_to_string("input_prod.txt").expect("Can't read the contents of the file.");
 
     let mut calories: Vec<usize> = file_data
         .split("\n\n")
@@ -13,10 +14,9 @@ fn main() {
         })
         .collect();
 
-    calories.sort();
-    calories.reverse();
+    calories.sort_by(|a, b| b.cmp(a));
 
     let sum: usize = calories.iter().take(3).sum();
 
-    println!("{sum}");
+    println!("Result: {}", sum);
 }
