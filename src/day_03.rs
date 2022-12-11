@@ -39,9 +39,9 @@ pub fn part_01() {
 pub fn part_02() {
     let file_data = include_str!("./input/day_03/input_prod.txt");
 
-    let lines: Vec<&str> = file_data.lines().collect();
-
-    let sum: u32 = lines
+    let sum: u32 = file_data
+        .lines()
+        .collect::<Vec<&str>>()
         .chunks(3)
         .map(|chunk| {
             let char_sets: Vec<HashSet<char>> = chunk
