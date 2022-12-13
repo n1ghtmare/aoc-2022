@@ -27,18 +27,22 @@ pub fn part_01() {
                 let mut y_temp: usize = y - 1;
 
                 while y_temp > 0 {
-                    let c_temp: char = lines[y_temp].chars().nth(0).unwrap();
-                    if c_temp.is_ascii() {
+                    let c_temp: char = lines[y_temp].chars().nth(x).unwrap();
+                    if !c_temp.is_whitespace() && c_temp.is_ascii() {
                         stack.push(c_temp);
                     }
                     y_temp = y_temp - 1;
                 }
+
+                stacks.push(stack);
             }
 
             x = x + 1;
         }
         y = y + 1;
     }
+
+    dbg!(stacks);
 
     let result = "no bueno";
     println!("day_05_part_01: {}", result);
